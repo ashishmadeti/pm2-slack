@@ -33,7 +33,7 @@ function sendSlack(message) {
 
     var name = message.name;
     var event = message.event;
-    var description = message.description;
+    var description = message.description.replace(/\\n/g, "\n");
 
     // If a Slack URL is not set, we do not want to continue and nofify the user that it needs to be set
     if (!conf.slack_url) return console.error("There is no Slack URL set, please set the Slack URL: 'pm2 set pm2-slack:slack_url https://slack_url'");
